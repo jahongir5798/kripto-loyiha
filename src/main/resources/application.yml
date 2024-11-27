@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/loyiha_db
+    username: postgres
+    password: root
+  liquibase:
+    change-log: db/changelog/db.changelog-master.xml
+  banner:
+    location: banner.txt
+server:
+  port: 8090
+
+
+app:
+   jwt:
+      secret-key: 2ffa76ef14937c1c0ea519f8fc057a80fcd04a7420f8e8bcd0a7567c272e006u
+      expiration-time: 3600000
