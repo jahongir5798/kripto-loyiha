@@ -23,7 +23,7 @@ public class UserMapper {
     public UserDto UserEntityToUserDto(User user) {
         UserDto userDto = new UserDto();
         userDto.setId(user.getUuid());
-        userDto.setFirstName(user.getUsername());
+        userDto.setUserName(user.getUsername());
         return userDto;
     }
 

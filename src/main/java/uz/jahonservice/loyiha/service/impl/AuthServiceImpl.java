@@ -56,7 +56,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public JwtResponse<UserDto> login(LoginDto loginDto) {
 
-        User user = userRepository.findByUsername(loginDto.getUsername()).orElseThrow(() -> new MyException("username not found"));
+        User user = userRepository.findByUsername(loginDto.getUserName()).orElseThrow(() -> new MyException("username not found"));
 
         if (!passwordEncoder.matches(loginDto.getPassword(), user.getPassword())){
             throw new MyException("wrong password");

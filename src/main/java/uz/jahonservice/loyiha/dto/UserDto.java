@@ -14,6 +14,6 @@ public class UserDto {
 
     private UUID id;
 
-    private String firstName;
+    private String userName;
 
 }

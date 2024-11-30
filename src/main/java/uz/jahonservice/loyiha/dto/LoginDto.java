@@ -10,7 +10,7 @@ import lombok.*;
 @Builder
 public class LoginDto {
 
-    private String username;
+    private String userName;
 
     @Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")
     private String password;
