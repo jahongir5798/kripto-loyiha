@@ -29,10 +29,14 @@ public class MainServiceImpl implements MainService {
 
         List<ErrorDto> errorDto = numberValidation.validateNumber(number);
 
+        if (numberValidation.isPrime(new BigInteger(number))) {
+            errorDto.add(new ErrorDto("Prime number", number));
+        }
+
         if (!errorDto.isEmpty()) {
             return ApiResponse.<List<BigInteger>>builder()
                     .code(-1)
-                    .message("Siz kiritgan raqamda ortiqcha belgilar mavjud")
+                    .message("Xatolik sodir buldi, pastroqda natijasi bor ")
                     .success(false)
                     .errorList(errorDto)
                     .build();
@@ -55,10 +59,15 @@ public class MainServiceImpl implements MainService {
     @Override
     public ApiResponse<List<BigInteger>> ferma(String number) {
         List<ErrorDto> errorDto = numberValidation.validateNumber(number);
+
+        if (numberValidation.isPrime(new BigInteger(number))) {
+            errorDto.add(new ErrorDto("Prime number", number));
+        }
+
         if (!errorDto.isEmpty()) {
             return ApiResponse.<List<BigInteger>>builder()
                     .code(-1)
-                    .message("Siz kiritgan raqamda ortiqcha belgilar mavjud")
+                    .message("Xatolik sodir buldi, pastroqda natijasi bor")
                     .success(false)
                     .errorList(errorDto)
                     .build();
@@ -92,10 +101,15 @@ public class MainServiceImpl implements MainService {
     @Override
     public ApiResponse<List<BigInteger>> kvadrat(String number) {
         List<ErrorDto> errorDto = numberValidation.validateNumber(number);
+
+        if (numberValidation.isPrime(new BigInteger(number))) {
+            errorDto.add(new ErrorDto("Prime number", number));
+        }
+
         if (!errorDto.isEmpty()) {
             return ApiResponse.<List<BigInteger>>builder()
                     .code(-1)
-                    .message("Siz kiritgan raqamda ortiqcha belgilar mavjud")
+                    .message("Xatolik sodir buldi, pastroqda natijasi bor ")
                     .success(false)
                     .errorList(errorDto)
                     .build();
