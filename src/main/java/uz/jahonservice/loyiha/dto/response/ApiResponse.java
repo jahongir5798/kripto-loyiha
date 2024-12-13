@@ -17,5 +17,7 @@ public class ApiResponse<T> {
 
     private T number;
 
+    private long time;
+
     private List<ErrorDto> errorList;
 }

@@ -42,17 +42,21 @@ public class MainServiceImpl implements MainService {
                     .build();
         }
 
+        long startTime = System.currentTimeMillis()-1;
+
         BigInteger n = new BigInteger(number);
         BigInteger number1 = polardRho.pollardsRho(n);
         List<BigInteger> numbers = new ArrayList<>();
         numbers.add(number1);
         numbers.add(n.divide(number1));
+        long endTime = System.currentTimeMillis();
 
         return ApiResponse.<List<BigInteger>>builder()
                 .code(0)
                 .success(true)
                 .message("Faktorizatsiyalash amalga oshirildi")
                 .number(numbers)
+                .time(endTime - startTime)
                 .build();
     }
 
@@ -73,6 +77,8 @@ public class MainServiceImpl implements MainService {
                     .build();
         }
 
+        long startTime = System.currentTimeMillis() - 1;
+
         BigInteger n = new BigInteger(number);
         BigInteger x = ferma.sqrtCeil(n);
         BigInteger y;
@@ -87,11 +93,13 @@ public class MainServiceImpl implements MainService {
                 List<BigInteger> numbers = new ArrayList<>();
                 numbers.add(q);
                 numbers.add(p);
+                long endTime = System.currentTimeMillis();
                 return ApiResponse.<List<BigInteger>>builder()
                         .code(0)
                         .success(true)
                         .message("Sonlar faktorizatsiyalandi")
                         .number(numbers)
+                        .time(endTime - startTime)
                         .build();
             }
             x = x.add(BigInteger.ONE);
@@ -115,13 +123,18 @@ public class MainServiceImpl implements MainService {
                     .build();
         }
 
+        long startTime = System.currentTimeMillis() - 1;
+
         BigInteger n = new BigInteger(number); // Faktorizatsiya qilinadigan son
         List<BigInteger> factors = kvadratQoldiq.factorize(n);
+
+        long endTime = System.currentTimeMillis();
         return ApiResponse.<List<BigInteger>>builder()
                 .code(0)
                 .success(true)
                 .message("Faktorizatsiyalash amalga oshi")
                 .number(factors)
+                .time(endTime - startTime)
                 .build();
     }
 
